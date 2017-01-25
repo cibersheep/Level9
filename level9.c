@@ -46,7 +46,7 @@
 #include "level9.h"
 
 /* #define L9DEBUG */
-/* #define CODEFOLLOW */
+#define CODEFOLLOW
 /* #define FULLSCAN */
 
 /* "L901" */
@@ -175,7 +175,7 @@ void show_picture(int pic);
 
 
 #ifdef CODEFOLLOW
-#define CODEFOLLOWFILE "c:\\temp\\level9.txt"
+#define CODEFOLLOWFILE "\/home\/cibersheep\/Baixades\/Ubuntu_Touch-Dev-Templates-Webapp-html5\/Level9_interpreters\/Level9_5.1-github\/Level9-works\/follow\/level9-codefollow.txt"
 FILE *f;
 L9UINT16 *cfvar,*cfvar2;
 char *codes[]=
@@ -2022,7 +2022,7 @@ L9BOOL CheckFile(GameState *gs)
 	gs->checksum=0;
 	for (i=0;i<sizeof(GameState);i++) checksum-=*((L9BYTE*) gs+i);
 	if (checksum) return FALSE;
-	if (stricmp(gs->filename,LastGame))
+	if (strcmp(gs->filename,LastGame))
 	{
 		printstring("\rWarning: game path name does not match, you may be about to load this position file into the wrong story file.\r");
 		printstring("Are you sure you want to restore? (Y/N)");
@@ -2165,7 +2165,7 @@ L9BOOL scriptinput(char* ibuff, int size)
 					*p = '\0';
 					break;
 				case '#':
-					if ((p==ibuff) && (strnicmp(p,"#seed ",6)==0))
+					if ((p==ibuff) && (strncmp(p,"#seed ",6)==0))
 						p++;
 					else
 						*p = '\0';
@@ -2404,24 +2404,24 @@ L9BOOL GetWordV3(char *buff,int Word)
 
 L9BOOL CheckHash(void)
 {
-	if (stricmp(ibuff,"#cheat")==0) StartCheat();
-	else if (stricmp(ibuff,"#save")==0)
+	if (strcmp(ibuff,"#cheat")==0) StartCheat();
+	else if (strcmp(ibuff,"#save")==0)
 	{
 		save();
 		return TRUE;
 	}
-	else if (stricmp(ibuff,"#restore")==0)
+	else if (strcmp(ibuff,"#restore")==0)
 	{
 		restore();
 		return TRUE;
 	}
-	else if (stricmp(ibuff,"#quit")==0)
+	else if (strcmp(ibuff,"#quit")==0)
 	{
 		StopGame();
 		printstring("\rGame Terminated\r");
 		return TRUE;
 	}
-	else if (stricmp(ibuff,"#dictionary")==0)
+	else if (strcmp(ibuff,"#dictionary")==0)
 	{
 		CheatWord=0;
 		printstring("\r");
@@ -2433,7 +2433,7 @@ L9BOOL CheckHash(void)
 		printstring("\r");
 		return TRUE;
 	}
-	else if (strnicmp(ibuff,"#picture ",9)==0)
+	else if (strncmp(ibuff,"#picture ",9)==0)
 	{
 		int pic = 0;
 		if (sscanf(ibuff+9,"%d",&pic) == 1)
@@ -2448,7 +2448,7 @@ L9BOOL CheckHash(void)
 		printchar('\r');
 		return TRUE;
 	}
-	else if (strnicmp(ibuff,"#seed ",6)==0)
+	else if (strncmp(ibuff,"#seed ",6)==0)
 	{
 		int seed = 0;
 		if (sscanf(ibuff+6,"%d",&seed) == 1)
@@ -2457,7 +2457,7 @@ L9BOOL CheckHash(void)
 		printchar('\r');
 		return TRUE;
 	}
-	else if (stricmp(ibuff,"#play")==0)
+	else if (strcmp(ibuff,"#play")==0)
 	{
 		playback();
 		return TRUE;
