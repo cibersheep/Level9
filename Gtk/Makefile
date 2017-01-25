@@ -21,7 +21,7 @@
 OPTIMIZE_CFLAGS = -O2 -DG_DISABLE_ASSERT
 
 # EXTRA_CFLAGS = -DGTK_DISABLE_DEPRECATED -DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED
-EXTRA_CFLAGS =
+EXTRA_CFLAGS = 
 
 LEVEL9 = ..
 
@@ -40,10 +40,10 @@ GTK_LIBS = `pkg-config --libs gtk+-2.0`
 
 #######################################################################
 
-LIBS = $(GTK_LIBS)
+LIBS = $(GTK_LIBS) -lm
 
 gtklevel9: $(OBJS)
-	$(CC) -o gtklevel9 $(OBJS) $(LIBS)
+	$(CC) -o gtklevel9 $(OBJS) $(LIBS) 
 
 clean:
 	$(RM) gtklevel9 *.o *~
