@@ -1,3 +1,10 @@
+Update
+============
+I'm updating, or trying to update this project to gtk3. For now it's not finished, 
+it compiles though and can be used to play but contains some bugs (relating with colors).
+I also need to update some depreciated intructions.
+
+
 Introduction
 ============
 
@@ -143,4 +150,4 @@ Changing colours
 It is possible to specify the fore- and background colours of the text
 area and the background colour of the picture area.
 
-Torbjörn Andersson <d91tan@Update.UU.SE>
+TorbjÃ¶rn Andersson <d91tan@Update.UU.SE>
