@@ -46,9 +46,15 @@ those, I'd be interested to hear if it worked.
 
 Update:
 To compile on linux, install libgtk2.0-dev with:
-` sudo apt install libgtk2.0-dev`
+  sudo apt install libgtk2.0-dev
 
-Then, navigate to the this folder and compile with `make`
+Then, navigate to the this folder and compile with:
+  make
+  
+Run typing
+  ./gtklevel9
+or double click on aplication. This version supports graphics if the pictures files are in the same folder.
+
 
 Performance considerations
 ==========================
