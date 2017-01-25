@@ -44,6 +44,12 @@ It should be noted that GTK+ is available for non-Unix platforms, e.g.
 Microsoft Windows. If anyone manages to compile GtkLevel9 for any of
 those, I'd be interested to hear if it worked.
 
+Update:
+To compile on linux, install libgtk2.0-dev with:
+` sudo apt install libgtk2.0-dev`
+
+Then, navigate to the this folder and compile with `make`
+
 Performance considerations
 ==========================
 
@@ -143,4 +149,4 @@ Changing colours
 It is possible to specify the fore- and background colours of the text
 area and the background colour of the picture area.
 
-Torbjörn Andersson <d91tan@Update.UU.SE>
+TorbjÃ¶rn Andersson <d91tan@Update.UU.SE>
