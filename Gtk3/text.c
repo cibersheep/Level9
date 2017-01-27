@@ -432,17 +432,17 @@ static gboolean sig_keypress (GtkWidget *widget, GdkEventKey *event,
 
     switch (event->keyval)
     {
-	case GDK_KP_Enter:
-	case GDK_Return:
+	case GDK_KEY_KP_Enter:
+	case GDK_KEY_Return:
 	    gtk_main_quit ();
 	    return TRUE;
 
-	case GDK_Up:
-	case GDK_KP_Up:
+	case GDK_KEY_Up:
+	case GDK_KEY_KP_Up:
 	    return do_history (-1);
 
-	case GDK_Down:
-	case GDK_KP_Down:
+	case GDK_KEY_Down:
+	case GDK_KEY_KP_Down:
 	    return do_history (1);
 	    
 	default:
