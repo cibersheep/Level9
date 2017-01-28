@@ -46,7 +46,7 @@
 #include "level9.h"
 
 /* #define L9DEBUG */
-#define CODEFOLLOW
+/* #define CODEFOLLOW */
 /* #define FULLSCAN */
 
 /* "L901" */
