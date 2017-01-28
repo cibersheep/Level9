@@ -633,7 +633,7 @@ void do_config ()
 	GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
 	"_OK",
 	GTK_RESPONSE_ACCEPT,
-	"_CANCEL",
+	"_Cancel",
 	GTK_RESPONSE_REJECT,
 	NULL);
 
@@ -648,21 +648,15 @@ void do_config ()
 
     /*colour_tab = gtk_vbox_new (FALSE, 3);*/
     colour_tab = gtk_box_new (GTK_ORIENTATION_VERTICAL, 3);
-    /*PIDGIN CODE
-    colour_tab = gtk_grid_new();
-    gtk_grid_set_row_spacing(GTK_GRID(colour_tab), 3);*/
 
-/*Restore it    gtk_container_set_border_width (GTK_CONTAINER (colour_tab), 5); */ /*CS*/
+    gtk_container_set_border_width (GTK_CONTAINER (colour_tab), 5);  /*CS*/
     gtk_notebook_append_page (GTK_NOTEBOOK (tabs), colour_tab,
 			      gtk_label_new ("Text and Colour"));
 
     /*graphics_tab = gtk_vbox_new (FALSE, 1);*/
     graphics_tab = gtk_box_new (GTK_ORIENTATION_VERTICAL, 1);
-    /*PIDGIN CODE
-    graphics_tab = gtk_grid_new();
-    gtk_grid_set_row_spacing(GTK_GRID(graphics_tab), 1);*/
 
-    /*gtk_container_set_border_width (GTK_CONTAINER (graphics_tab), 5);*/
+    gtk_container_set_border_width (GTK_CONTAINER (graphics_tab), 5);
     gtk_notebook_append_page (GTK_NOTEBOOK (tabs), graphics_tab,
 			      gtk_label_new ("Graphics"));
 
@@ -675,7 +669,7 @@ void do_config ()
 	GtkStyle *style;
 	gchar *font_name;
 
-	style = gtk_widget_get_style (Gui.text_view);
+	style = gtk_widget_get_style_context (Gui.text_view);
 	font_name = pango_font_description_to_string (style->font_desc);
 	gtk_font_button_set_font_name (
 	    GTK_FONT_BUTTON (text_font), font_name);

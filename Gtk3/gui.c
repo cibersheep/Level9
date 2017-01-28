@@ -36,6 +36,8 @@ static gboolean configure_window (GtkWidget *widget, GdkEventConfigure *event,
 {
     Config.window_width = event->width;
     Config.window_height = event->height;
+    /*Let's try to resize picture to a % of the window*/
+    /* Config.image_height = Config.window_height / 5;*/
     return FALSE;
 }
 
@@ -63,14 +65,14 @@ static void do_quit ()
 static GtkActionEntry menuEntries[] =
 {
     { "FileMenu", NULL, "_File" },
-    { "Open", GTK_STOCK_OPEN, "_Open", "<control>O", NULL,
+    { "Open", "document-open", "_Open", "<control>O", NULL,
       G_CALLBACK (do_open) },
-    { "Prefs", GTK_STOCK_PREFERENCES, "_Preferences...", NULL, NULL,
+    { "Prefs", "preferences-system", "_Preferences...", NULL, NULL,
       G_CALLBACK (do_config) },
-    { "Quit", GTK_STOCK_QUIT, "_Quit", "<control>Q", NULL,
+    { "Quit", "application-exit", "_Quit", "<control>Q", NULL,
       G_CALLBACK (do_quit) },
-    { "HelpMenu", NULL, "_Help" },
-    { "About", GTK_STOCK_ABOUT, "_About", NULL, NULL,
+    /* { "HelpMenu", NULL, "_Help" },*/
+    { "About", "help-about", "_About", NULL, NULL,
       G_CALLBACK (do_about) }
 };
     
@@ -108,7 +110,7 @@ void gui_init ()
 
     /* The main "box" */
 
-    Gui.main_box = gtk_vbox_new (FALSE, 0);
+    Gui.main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     gtk_container_add (GTK_CONTAINER (Gui.main_window), Gui.main_box);
 
     /* Menus */
@@ -141,7 +143,7 @@ void gui_init ()
 
     /* The game area; picture and text */
     
-    Gui.partition = gtk_vpaned_new ();
+    Gui.partition = gtk_paned_new (GTK_ORIENTATION_VERTICAL);
     gtk_box_pack_start (GTK_BOX (Gui.main_box), Gui.partition, TRUE, TRUE, 0);
 
     Gui.statusbar = gtk_statusbar_new ();
