@@ -6,3 +6,7 @@ Interpreter for games released by the UK company Level 9, originally written by 
 
 Run from terminal with `./level9 <your-game>.dat
 No support of pictures in this version. Check Gtk
+
+------------------------------------------------------
+
+For snap project check: https://github.com/cibersheep/level9-interpreter-snap
